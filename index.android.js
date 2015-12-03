@@ -7,25 +7,33 @@
 var React = require('react-native');
 var {
   AppRegistry,
+  BackAndroid,
   StyleSheet,
   Text,
+  ToolbarAndroid,
   View,
 } = React;
 
 var ReactFeed = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      // <View style={styles.container}>
+      //   <Text style={styles.welcome}>
+      //     Welcome to React Native!
+      //   </Text>
+      //   <Text style={styles.instructions}>
+      //     To get started, edit index.android.js
+      //   </Text>
+      //   <Text style={styles.instructions}>
+      //     Shake or press menu button for dev menu
+      //   </Text>
+      // </View>
+      <Navigator
+         style = { styles.container }
+         initialRoute = { initialRoute }
+         configureScene = { () => Navigator.SceneConfigs.FadeAndroid }
+         renderScene = { RouteMapper }
+      />
     );
   }
 });
@@ -50,3 +58,5 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('ReactFeed', () => ReactFeed);
+
+module.exports = ReactFeed;
