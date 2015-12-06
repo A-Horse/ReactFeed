@@ -6,6 +6,15 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.14.2"
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-runtime": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.11.2",
+    "react-native": "^0.14.2",
+    "react-native-navbar": "^1.0.7",
+    "react-native-orientation": "^1.9.0",
+    "reflux": "^0.3.0",
+    "webpack": "^1.12.9"
   }
 }
