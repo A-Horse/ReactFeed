@@ -33,7 +33,7 @@ class FeedScreen extends Component {
             </Text>
 
             <TouchableHighlight onPress={(this.goSetting.bind(this))} style={styles.settingButton} >
-                <Image style={styles.settingIcon}source={require('./asserts/img/icon-setting.png')} />
+            <Image style={styles.settingIcon}source={require('./asserts/img/icon-setting.png')} />
             </TouchableHighlight>
                 
             </View>

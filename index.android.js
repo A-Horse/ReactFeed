@@ -16,9 +16,10 @@ var {
     View,
 } = React;
 
-var SettingScreen = require('./SettingScreen');
+var SettingScreen = require('./SettingScreen'),
+    FeedScreen = require('./feedScreen'),
+    ListScreen = require('./listScreen');
 
-var FeedScreen = require('./feedScreen');
 
 var _navigator;
 BackAndroid.addEventListener('hardwareBackPress', () => {
@@ -31,21 +32,23 @@ BackAndroid.addEventListener('hardwareBackPress', () => {
 
 var RouteMapper = function(route, navigationOperations, onComponentRef) {
     _navigator = navigationOperations;
-    if (route.name === 'setting') {
+    if (route.name === 'feed') {
         return (
                 <FeedScreen navigator={navigationOperations}/>
         );
+    } else if ( route.name === 'setting' ) {
+        return (
+            <SettingScreen navigator={navigationOperations} />
+        );
+    } else if ( route.name === 'list' ) {
+        return (
+                <ListScreen navigator={navigationOperations} />
+        );
     } else {
         return (
-            <View style={styles.container1}>
+            <View style={styles.page}>
             <Text style={styles.welcome}>
-            Welcome to React Native!
-            </Text>
-            <Text style={styles.instructions}>
-            To get started, edit index.android.js
-            </Text>
-            <Text style={styles.instructions}>
-            Shake or press menu button for dev menu
+                404
             </Text>
             </View>
         );
@@ -58,7 +61,7 @@ var Orientation = require('react-native-orientation');
 
 var ReactFeed = React.createClass({
     render: function() {
-        var initialRoute = {name: 'setting'};
+        var initialRoute = {name: 'list'};
         return (
             <Navigator
             style={styles.container}
@@ -75,7 +78,7 @@ var styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F5FCFF',
     },
-    container1: {
+    page: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -85,11 +88,6 @@ var styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
     },
 });
 
