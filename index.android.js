@@ -55,7 +55,6 @@ var RouteMapper = function(route, navigationOperations, onComponentRef) {
     }
 };
 
-var Orientation = require('react-native-orientation');
 
 
 
