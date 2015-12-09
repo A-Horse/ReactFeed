@@ -28,40 +28,36 @@ class ListScreen extends Component {
 
     
     render() {
-        var modalBackgroundStyle = {
-            backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
-        };
-        var innerContainerTransparentStyle = this.state.transparent
-                                           ? {backgroundColor: '#fff', padding: 20}
-                                           : null;
+        
         
         return (
             <View style={ styles.container }>
+
             <Text>
-            This is List Screen!
+            This is List Screen!! {this.state.text}
             </Text>
 
+            <View style={styles.addFeed}>
+            
+            <TextInput
+            style={styles.addInput}
+            //onChangeText={(text) => this.setState({text})}
+            value={this.state.text}/>
+
+            
             <TouchableHighlight onPress={(this.goSetting.bind(this))} style={styles.addButton} underlayColor="#F5FCFF">
             <Image style={styles.addIcon} source={require('./asserts/img/icon-add.png')} />
             </TouchableHighlight>
 
-            <Modal
-            animated={this.state.animated}
-            transparent={this.state.transparent}
-            visible={this.state.modalVisible}>
+            </View>
             
-            <View style={[styles.container, modalBackgroundStyle]}>
-            <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-                 <Text>This modal was presented {this.state.animated ? 'with' : 'without'} animation.</Text>            
-            </View>
-            </View>
-            </Modal>
             
             </View>
         );
     }
 
     goSetting() {
+        console.log('l');
         this.setState({modalVisible: true});
     }
 
@@ -70,22 +66,30 @@ class ListScreen extends Component {
 
 var styles = StyleSheet.create({
     container: {
-        flex: 0.5,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    innerContainer: {
-        borderRadius: 10,
+    addFeed: {
+        flex: 1,
+        flexDirection: 'row',
         alignItems: 'center',
     },
+    addInput: {
+        flex: 0.8,
+        height: 40,
+        width: 250,
+        borderColor: 'green',
+        borderWidth: 1
+    },
     addButton: {
-        position: 'absolute',
-        right: 16,
-        bottom: 16,
+        flex: 0.2,
+        /* right: 16,
+           bottom: 16, */
     },
     addIcon: {
-        width: 80,
-        height: 80,
+        width: 40,
+        height: 40,
 
     },
 });
