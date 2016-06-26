@@ -3,18 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "babel-core": "^6.3.13",
-    "babel-loader": "^6.2.0",
-    "babel-runtime": "^6.3.13",
-    "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.11.2",
-    "react-native": "^0.14.2",
-    "react-native-navbar": "^1.0.7",
-    "react-native-orientation": "^1.9.0",
-    "reflux": "^0.3.0",
-    "webpack": "^1.12.9"
+    "react": "^15.1.0",
+    "react-native": "^0.27.0-rc2"
   }
 }
