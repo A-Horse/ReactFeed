@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 
+
 class ReactFeed extends Component {
   constructor() {
     super();
